@@ -34,6 +34,7 @@ namespace MegaDesk_Krohn
                 }
             }
         }
+
         public int Depth
         {
             get
