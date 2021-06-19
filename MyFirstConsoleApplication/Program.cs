@@ -6,6 +6,11 @@ namespace MyFirstConsoleApplication
     {
         static void Main(string[] args)
         {
+            string s = "Hello";
+            int x = s.Length;
+            int y = s.IndexOf("l");
+            Console.Write(x % y);
+
             GetUserNameAndLocation();
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
