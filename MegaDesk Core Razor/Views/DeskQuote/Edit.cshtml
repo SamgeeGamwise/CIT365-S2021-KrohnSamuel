@@ -1,0 +1,103 @@
+﻿@model MegaDesk_Core_Razor.Models.DeskQuote
+
+@{
+    ViewData["Title"] = "Edit Quote";
+
+    string[] Shipping = {
+            "No Rush",
+            "3-day Shipping",
+            "5-day Shipping",
+            "7-day Shipping"
+        };
+    string[] DesktopMaterial =
+    {
+            "Laminate",
+            "Oak",
+            "Rosewood",
+            "Veneer",
+            "Pine"
+        };
+}
+
+<h1>Edit Quote</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                 </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Width" class="control-label"></label>
+                            <input asp-for="Width" class="form-control" />
+                            <span asp-validation-for="Width" class="text-danger"></span>
+                        </div>
+                        </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Depth" class="control-label"></label>
+                            <input asp-for="Depth" class="form-control" />
+                            <span asp-validation-for="Depth" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                        <div class="form-group">
+                            <label asp-for="Drawers" class="control-label"></label>
+                            <input asp-for="Drawers" class="form-control" />
+                            <span asp-validation-for="Drawers" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Material" class="control-label"></label>
+                            <select asp-for="Material" class="form-control">
+                                @foreach (string material in DesktopMaterial)
+                                {
+                                    <option>@material</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Material" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ShipOption" class="control-label"></label>
+                            <select asp-for="ShipOption" class="form-control">
+                                @foreach (string shipping in Shipping)
+                                {
+                                    <option>@shipping</option>
+                                }
+                            </select>
+                            <span asp-validation-for="ShipOption" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="QuoteDate" class="control-label"></label>
+                            <input asp-for="QuoteDate" class="form-control" />
+                            <span asp-validation-for="QuoteDate" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" asp-for="CreatedDateTime" class="form-control" />
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-success btn-sm" />
+                            <a class="btn btn-outline-warning btn-sm" asp-action="Index">Back to List</a>
+                        </div>
+</form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

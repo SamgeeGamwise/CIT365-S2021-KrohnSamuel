@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MegaDesk_Core_Razor.Models.DeskQuote>
+
+@{
+    ViewData["Title"] = "Desk Quotes";
+}
+
+<h1>Desk Quotes</h1>
+
+<a asp-action="Create" class="btn btn-outline-success btn-sm my-4" >Create New</a>
+
+<form asp-controller="DeskQuote" asp-action="Index" method="get">
+    <div class="d-flex align-middle my-3">
+        <span class="my-auto mr-1">Last Name: </span>
+        <input type="text" name="SearchString" class="my-auto mr-2"/>
+        <input type="submit" value="Search" class="btn btn-warning btn-sm" />
+    </div>
+</form>
+<div class="scrollable-table">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <span class="d-flex flex-row align-items-end">
+                        Name
+                        <span class="sortWrap">
+                            <form>
+                                <input type="submit" value="^" class="sorter" />
+                                <input type="hidden" name="SortOrder" value="name_asc" />
+                            </form>
+                            <form>
+                                <input type="submit" value="^" class="sorter flip" />
+                                <input type="hidden" name="SortOrder" value="name_desc" />
+                            </form>
+                        </span>
+                    </span>
+                </th>
+                <th>
+                    Dimensions (Width x Depth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Drawers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Material)
+                </th>
+                <th>
+                    <span class="d-flex flex-row align-items-end">
+                        @Html.DisplayNameFor(model => model.QuoteDate)
+                        <span class="sortWrap">
+                            <form>
+                                <input type="submit" value="^" class="sorter" />
+                                <input type="hidden" name="SortOrder" value="date_asc" />
+                            </form>
+                            <form>
+                                <input type="submit" value="^" class="sorter flip" />
+                                <input type="hidden" name="SortOrder" value="date_desc" />
+                            </form>
+                        </span>
+                    </span>
+                </th>
+                <th>
+                    Quote Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Width) x @Html.DisplayFor(modelItem => item.Depth) Inches
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Drawers)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Material)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuoteDate)
+                    </td>
+                    <td>
+                        @item.getQuotePrice().ToString("C0")
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-warning btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Modify
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
