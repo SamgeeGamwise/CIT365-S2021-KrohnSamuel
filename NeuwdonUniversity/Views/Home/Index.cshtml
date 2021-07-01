@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="jumbotron banner-wrapper mt-5 mb-2 p-0">
+    <img src="~/university.jpg" class="img-fluid banner" alt="University">
+    <h1 class="banner-text">Neuwdon University</h1>
+</div>
+<div class="row">
+    <div class="col-12">
+        <p class="lead mb-5">
+            There is a great value in Higher Education, including increased career potential and quality of life. We work to make high-quality education worthwhile, relevant and accessible.
+        </p>
+    </div>
+    <div class="col-12 d-none d-md-block">
+        <div class="row">
+            <div class="col-12 text-center text-dark mb-3">
+                <h1>Manage Records</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="text-dark text-center">Students</h2>
+                <p>Register new students, assist with their courses and grades, and remove students</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-dark text-center">Instructors</h2>
+                <p>Add new Instructors and manage existing.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-dark text-center">Courses</h2>
+                <p>Create new courses, edit courses, review all students and instructors within courses.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="link-list">
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Students" asp-action="Index">Search Students</a></li>
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Students" asp-action="Create">Add New Student</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="link-list">
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Instructors" asp-action="Index">Search Instructors</a></li>
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Instructors" asp-action="Create">Add New Instructors</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="link-list">
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Courses" asp-action="Index">Search Courses</a></li>
+                    <li><a class="nav-link text-warning" asp-area="" asp-controller="Courses" asp-action="Create">Create New Course</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

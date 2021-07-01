@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NeuwdonUniversity.Models.SchoolViewModels.EnrollmentDateGroup>
+
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+
+
+<h2>Student Body Statistics</h2>
+<table>
+    <tr>
+        <th>
+            Enrollment Date
+        </th>
+        <th>
+            Students
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                @item.StudentCount
+            </td>
+        </tr>
+    }
+</table>
+
+<hr />
+
+
+<h2>Contact Us</h2>
+<p>Phone: <a href="tel:800-999-9999">1(800) 999-9999</a></p>
+<p>Email: <a href="mailto:info@neuwdon.com">info@Neuwdon.com</a></p>
+
+<hr />
+
+<h2>Creator</h2>
+<p>Name: Samuel Krohn</p>
+<p>Phone: <a href="tel:720-670-9246">(720) 670-9246</a></p>
+<p>Email: <a href="mailto:kro14001@byui.com">kro14001@byui.edu </a></p>
+
